@@ -21,6 +21,7 @@ import io.ktor.server.netty.*
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.json.Json
+import com.motycka.edu.order.orderRoutes
 
 private val logger = KotlinLogging.logger {}
 
@@ -67,7 +68,7 @@ fun main() {
 
             authenticate(AUTH_JWT) {
                 menuRoutes(menuService, API_PATH)
-                // add order routes
+                orderRoutes(API_PATH, menuService)
             }
         }
     }.start(wait = true)

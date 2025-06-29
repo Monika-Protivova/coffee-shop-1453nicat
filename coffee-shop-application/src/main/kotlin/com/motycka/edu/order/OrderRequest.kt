@@ -3,6 +3,7 @@ package com.motycka.edu.order
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class OrderRequest(
+data class OrderCreateRequest(
+    val customerId: Long,
     val items: List<OrderItemRequest>
 )
