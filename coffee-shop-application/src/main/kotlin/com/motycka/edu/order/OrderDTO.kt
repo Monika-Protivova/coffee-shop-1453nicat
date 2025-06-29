@@ -1,8 +1,13 @@
 package com.motycka.edu.order
 
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class OrderDTO(
-    val id: OrderId?,
+    val id: Long,
     val customerId: Long,
-    val status: OrderStatus
+    val menuItems: List<OrderItem>,
+    val totalPrice: Double,
+    val status: OrderStatus,
+    val isPaid: Boolean
 )
